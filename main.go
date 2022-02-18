@@ -49,13 +49,13 @@ func main() {
 		ticker := time.NewTicker(*interval)
 		for {
 			action := client.Users.Follow
-			msg := "following"
+			msg := "follow"
 			if following {
 				action = client.Users.Unfollow
-				msg = "unfollowing"
+				msg = "unfollow"
 			}
 
-			log.Debug().Msgf("%s %s", msg, *kar)
+			log.Debug().Msgf("%sing %s", msg, *kar)
 			_, err := action(ctx, *kar)
 			if err != nil {
 				log.Err(err).Msgf("could not %s %s", msg, *kar)
